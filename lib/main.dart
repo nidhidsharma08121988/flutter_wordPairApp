@@ -35,5 +35,5 @@ class MyApp extends StatelessWidget {
 
 Widget wordPairGenerator() {
   final wordPair = WordPair.random();
-  return Text(wordPair.asPascalCase.toString().trim());
+  return Text(wordPair.asPascalCase);
 }
