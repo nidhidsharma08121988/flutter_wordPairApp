@@ -22,7 +22,8 @@ class MyApp extends StatelessWidget {
               centerTitle: true,
               title: const Text('Word Pair Generator'),
             ),
-            body: Column(
+            body: ListView(
+              padding: const EdgeInsets.all(1),
               children: [
                 wordPairGenerator(),
                 wordPairGenerator(),
