@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 
-void main() => runApp(const MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // TODO: implement key
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  final wordPair = WordPair.random();
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +20,12 @@ class MyApp extends StatelessWidget {
           ),
         ),
         home: Scaffold(
-          appBar: AppBar(
-            centerTitle: true,
-            title: const Text('Word Pair Generator'),
-          ),
-        ));
+            appBar: AppBar(
+              centerTitle: true,
+              title: const Text('Word Pair Generator'),
+            ),
+            body: Center(
+              child: Text(wordPair.asPascalCase),
+            )));
   }
 }
