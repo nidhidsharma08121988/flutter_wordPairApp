@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         home: Scaffold(
           appBar: AppBar(
             centerTitle: true,
-            title: const Text('Hello from us'),
+            title: const Text('Word Pair Generator'),
           ),
         ));
   }
