@@ -24,13 +24,17 @@ class MyApp extends StatelessWidget {
             ),
             body: ListView(
               padding: const EdgeInsets.all(1),
-              children: [
-                wordPairGenerator(),
-                wordPairGenerator(),
-                wordPairGenerator(),
-                wordPairGenerator(),
-              ],
+              children: generateListOFWordPair,
             )));
+  }
+
+  List<Widget> get generateListOFWordPair {
+    return [
+      wordPairGenerator(),
+      wordPairGenerator(),
+      wordPairGenerator(),
+      wordPairGenerator(),
+    ];
   }
 }
 
