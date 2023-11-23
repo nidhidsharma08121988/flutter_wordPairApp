@@ -7,8 +7,6 @@ class MyApp extends StatelessWidget {
   // TODO: implement key
   MyApp({super.key});
 
-  final wordPair = WordPair.random();
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -26,12 +24,16 @@ class MyApp extends StatelessWidget {
             ),
             body: Column(
               children: [
-                Text(wordPair.asPascalCase),
-                Text(wordPair.asPascalCase),
-                Text(wordPair.asPascalCase),
-                Text(wordPair.asPascalCase),
-                Text(wordPair.asPascalCase)
+                wordPairGenerator(),
+                wordPairGenerator(),
+                wordPairGenerator(),
+                wordPairGenerator(),
               ],
             )));
   }
+}
+
+Widget wordPairGenerator() {
+  final wordPair = WordPair.random();
+  return Text(wordPair.asPascalCase.toString().trim());
 }
