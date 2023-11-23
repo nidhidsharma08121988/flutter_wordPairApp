@@ -30,6 +30,16 @@ class MyApp extends StatelessWidget {
 
     return ListView.builder(
         padding: const EdgeInsets.all(16),
+        itemBuilder: (context, item) {
+          if (item.isOdd) {
+            return const Divider();
+          }
+
+          final index = item ~/ 2;
+
+          if (index >= randomWordPairs.length) {
+            randomWordPairs.addAll(generateWordPairs().take(10));
+          }
           );
         });
   }
