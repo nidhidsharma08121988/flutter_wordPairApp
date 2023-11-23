@@ -29,11 +29,22 @@ class MyApp extends StatelessWidget {
   }
 
   List<Widget> get generateListOFWordPair {
-    return [
-      wordPairGenerator(),
-      wordPairGenerator(),
-      wordPairGenerator(),
-      wordPairGenerator(),
+    return <Widget>[
+      Container(
+        height: 50,
+        color: Colors.amber[600],
+        child: Center(child: wordPairGenerator()),
+      ),
+      Container(
+        height: 50,
+        color: Colors.amber[500],
+        child: Center(child: wordPairGenerator()),
+      ),
+      Container(
+        height: 50,
+        color: Colors.amber[100],
+        child: Center(child: wordPairGenerator()),
+      ),
     ];
   }
 }
