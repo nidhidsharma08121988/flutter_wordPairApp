@@ -26,8 +26,7 @@ class MyApp extends StatelessWidget {
   }
 
   Widget get generateListOFWordPair {
-    final List<String> entries = <String>['A', 'B', 'C'];
-    final List<int> colorCodes = <int>[600, 500, 100];
+    final List<WordPair> randomWordPairs = <WordPair>[];
 
     return ListView.builder(
         padding: const EdgeInsets.all(8),
