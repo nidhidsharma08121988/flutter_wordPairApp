@@ -35,17 +35,19 @@ class MyApp extends StatelessWidget {
             return const Divider();
           }
 
-          final index = item ~/ 2;
+          int index = item ~/ 2;
 
-          if (index >= randomWordPairs.length) {
+          if (index >= randomWordPairs.length && index < 99) {
             randomWordPairs.addAll(generateWordPairs().take(10));
           }
-          );
+
+          return buildRow(randomWordPairs[index]);
         });
   }
-}
 
-Widget wordPairGenerator() {
-  final wordPair = WordPair.random();
-  return Text(wordPair.asPascalCase);
+  ListTile buildRow(WordPair wordPair) {
+    return ListTile(
+      title: Text(wordPair.asPascalCase),
+    );
+  }
 }
