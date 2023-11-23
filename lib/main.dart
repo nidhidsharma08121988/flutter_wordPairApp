@@ -24,8 +24,14 @@ class MyApp extends StatelessWidget {
               centerTitle: true,
               title: const Text('Word Pair Generator'),
             ),
-            body: Center(
-              child: Text(wordPair.asPascalCase),
+            body: Column(
+              children: [
+                Text(wordPair.asPascalCase),
+                Text(wordPair.asPascalCase),
+                Text(wordPair.asPascalCase),
+                Text(wordPair.asPascalCase),
+                Text(wordPair.asPascalCase)
+              ],
             )));
   }
 }
