@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
           return Container(
             height: 50,
             color: Colors.amber[colorCodes[index]],
-            child: Center(child: Text('Entry ${entries[index]}')),
+            child: Center(child: wordPairGenerator()),
           );
         });
   }
