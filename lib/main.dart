@@ -4,7 +4,6 @@ import 'package:english_words/english_words.dart';
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  // TODO: implement key
   const MyApp({super.key});
 
   @override
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
               centerTitle: true,
               title: const Text('Word Pair Generator'),
             ),
-            body: AppBody()));
+            body: const AppBody()));
   }
 }
 
@@ -40,17 +39,17 @@ class BodyState extends State<AppBody> {
         padding: const EdgeInsets.all(16),
         itemBuilder: (context, item) {
           try {
-          if (item.isOdd) {
-            return const Divider();
-          }
+            if (item.isOdd) {
+              return const Divider();
+            }
 
-          int index = item ~/ 2;
+            int index = item ~/ 2;
 
             if (index >= randomWordPairs.length && index < 89) {
-            randomWordPairs.addAll(generateWordPairs().take(10));
-          }
+              randomWordPairs.addAll(generateWordPairs().take(10));
+            }
             if (index < 89) {
-          return buildRow(randomWordPairs[index]);
+              return buildRow(randomWordPairs[index]);
             }
             return null;
           } catch (error) {
@@ -67,6 +66,6 @@ class BodyState extends State<AppBody> {
 
   @override
   Widget build(BuildContext context) {
-    return generateListOFWordPair;
+    return generateListOFWordPair ?? Container();
   }
 }
