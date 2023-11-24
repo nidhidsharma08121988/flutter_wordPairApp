@@ -40,17 +40,23 @@ class BodyState extends State<AppBody> {
       
         padding: const EdgeInsets.all(16),
         itemBuilder: (context, item) {
+          try {
           if (item.isOdd) {
             return const Divider();
           }
 
           int index = item ~/ 2;
 
-          if (index >= randomWordPairs.length && index < 99) {
+            if (index >= randomWordPairs.length && index < 89) {
             randomWordPairs.addAll(generateWordPairs().take(10));
           }
-
+            if (index < 100) {
           return buildRow(randomWordPairs[index]);
+            }
+            return const Text('Out of Range');
+          } catch (error) {
+            return null;
+          }
         });
   }
 
