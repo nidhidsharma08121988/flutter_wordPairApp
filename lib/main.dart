@@ -33,11 +33,10 @@ class AppBody extends StatefulWidget {
 }
 
 class BodyState extends State<AppBody> {
-  Widget get generateListOFWordPair {
+  Widget? get generateListOFWordPair {
     final List<WordPair> randomWordPairs = <WordPair>[];
 
     return ListView.builder(
-      
         padding: const EdgeInsets.all(16),
         itemBuilder: (context, item) {
           try {
@@ -50,10 +49,10 @@ class BodyState extends State<AppBody> {
             if (index >= randomWordPairs.length && index < 89) {
             randomWordPairs.addAll(generateWordPairs().take(10));
           }
-            if (index < 100) {
+            if (index < 89) {
           return buildRow(randomWordPairs[index]);
             }
-            return const Text('Out of Range');
+            return null;
           } catch (error) {
             return null;
           }
