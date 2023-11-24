@@ -22,13 +22,22 @@ class MyApp extends StatelessWidget {
               centerTitle: true,
               title: const Text('Word Pair Generator'),
             ),
-            body: generateListOFWordPair));
+            body: AppBody()));
   }
+}
 
+class AppBody extends StatefulWidget {
+  const AppBody({super.key});
+  @override
+  BodyState createState() => BodyState();
+}
+
+class BodyState extends State<AppBody> {
   Widget get generateListOFWordPair {
     final List<WordPair> randomWordPairs = <WordPair>[];
 
     return ListView.builder(
+      
         padding: const EdgeInsets.all(16),
         itemBuilder: (context, item) {
           if (item.isOdd) {
@@ -49,5 +58,10 @@ class MyApp extends StatelessWidget {
     return ListTile(
       title: Text(wordPair.asPascalCase),
     );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return generateListOFWordPair;
   }
 }
