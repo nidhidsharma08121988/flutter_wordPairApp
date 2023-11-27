@@ -70,7 +70,7 @@ class BodyState extends State<AppBody> {
                     ),
                     onPressed: () {
                       setState(() {
-                      toggleFavorites(randomWordsList[index]);
+                        toggleFavorites(randomWordsList[index]);
                       });
                     },
                   )
