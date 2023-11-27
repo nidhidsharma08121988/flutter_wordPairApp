@@ -61,7 +61,9 @@ class BodyState extends State<AppBody> {
                   Text(randomWordsList[index]),
                   IconButton(
                     icon: Icon(
-                      Icons.favorite,
+                      isFavoriteWord(randomWordsList[index])
+                          ? Icons.favorite
+                          : Icons.favorite_border,
                       color: isFavoriteWord(randomWordsList[index])
                           ? Colors.red[400]
                           : Colors.blue[40],
