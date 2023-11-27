@@ -53,29 +53,33 @@ class BodyState extends State<AppBody> {
         itemCount: randomWordsList.length,
         separatorBuilder: (BuildContext context, int index) => const Divider(),
         itemBuilder: (BuildContext context, int index) {
-          return ListTile(
-            title: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(randomWordsList[index]),
-                  IconButton(
-                    icon: Icon(
-                      isFavoriteWord(randomWordsList[index])
-                          ? Icons.favorite
-                          : Icons.favorite_border,
-                      color: isFavoriteWord(randomWordsList[index])
-                          ? Colors.red
-                          : null,
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        toggleFavorites(randomWordsList[index]);
-                      });
-                    },
-                  )
-                ]),
+          var listTile = ListTile(
+            title: listRow(index, isFavoriteWord, toggleFavorites),
           );
+          return listTile;
         });
+  }
+
+  Row listRow(int index, bool Function(String word) isFavoriteWord,
+      void Function(String word) toggleFavorites) {
+    return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(randomWordsList[index]),
+          IconButton(
+            icon: Icon(
+              isFavoriteWord(randomWordsList[index])
+                  ? Icons.favorite
+                  : Icons.favorite_border,
+              color: isFavoriteWord(randomWordsList[index]) ? Colors.red : null,
+            ),
+            onPressed: () {
+              setState(() {
+                toggleFavorites(randomWordsList[index]);
+              });
+            },
+          )
+        ]);
   }
 }
