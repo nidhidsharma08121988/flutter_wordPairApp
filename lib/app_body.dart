@@ -65,8 +65,8 @@ class BodyState extends State<AppBody> {
                           ? Icons.favorite
                           : Icons.favorite_border,
                       color: isFavoriteWord(randomWordsList[index])
-                          ? Colors.red[400]
-                          : Colors.blue[40],
+                          ? Colors.red
+                          : null,
                     ),
                     onPressed: () {
                       toggleFavorites(randomWordsList[index]);
