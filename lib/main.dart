@@ -3,6 +3,15 @@ import 'app_body.dart';
 
 void main() => runApp(const MyApp());
 
+class FavoriteScreen extends StatelessWidget {
+  const FavoriteScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
