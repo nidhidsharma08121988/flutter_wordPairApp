@@ -18,9 +18,18 @@ class MyApp extends StatelessWidget {
         ),
         home: Scaffold(
             appBar: AppBar(
-              centerTitle: true,
-              title: const Text('Word Pair Generator'),
-            ),
+                actions: <Widget>[
+                  IconButton(
+                    icon: const Icon(Icons.list),
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                const FavoriteScreen()),
+                      );
+                    },
+                  )
+                ]),
             body: const AppBody()));
   }
 }
