@@ -27,6 +27,8 @@ class MyApp extends StatelessWidget {
         ),
         home: Scaffold(
             appBar: AppBar(
+                centerTitle: true,
+                title: const Text('Random Words Generator'),
                 actions: <Widget>[
                   IconButton(
                     icon: const Icon(Icons.list),
