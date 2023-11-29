@@ -1,56 +1,31 @@
 import 'package:flutter/material.dart';
 
-class AppBody extends StatefulWidget {
-  const AppBody({super.key});
+class Body extends StatefulWidget {
+  List<String> wordList;
+  Set<String> favorites;
+  Body({super.key, this.wordList = const [], this.favorites = const {}});
   @override
-  BodyState createState() => BodyState();
+  _BodyState createState() => _BodyState();
 }
 
-class BodyState extends State<AppBody> {
-  List<String> randomWordsList = [
-    'color',
-    'food',
-    'trees',
-    'lifestyle',
-    'airport',
-    'cars',
-    'shopping',
-    'work',
-    'computers',
-    'gadget',
-    'video games',
-    'fruits',
-    'veggies',
-    'cosmetics',
-    'dance',
-    'swimming',
-    'football',
-    'books',
-    'stroller',
-    'nappy',
-    'blanket',
-    'pets'
-  ];
-
-  Set<String> favorites = {};
-
+class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     bool isFavoriteWord(String word) {
-      return favorites.contains(word);
+      return widget.favorites.contains(word);
     }
 
     void toggleFavorites(String word) {
       if (isFavoriteWord(word)) {
-        favorites.remove(word);
+        widget.favorites.remove(word);
       } else {
-        favorites.add(word);
+        widget.favorites.add(word);
       }
     }
 
     return ListView.separated(
         padding: const EdgeInsets.all(1),
-        itemCount: randomWordsList.length,
+        itemCount: widget.wordList.length,
         separatorBuilder: (BuildContext context, int index) => const Divider(),
         itemBuilder: (BuildContext context, int index) {
           var listTile = ListTile(
@@ -66,17 +41,17 @@ class BodyState extends State<AppBody> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(randomWordsList[index]),
+          Text(widget.wordList[index]),
           IconButton(
             icon: Icon(
-              isFavoriteWord(randomWordsList[index])
+              isFavoriteWord(widget.wordList[index])
                   ? Icons.favorite
                   : Icons.favorite_border,
-              color: isFavoriteWord(randomWordsList[index]) ? Colors.red : null,
+              color: isFavoriteWord(widget.wordList[index]) ? Colors.red : null,
             ),
             onPressed: () {
               setState(() {
-                toggleFavorites(randomWordsList[index]);
+                toggleFavorites(widget.wordList[index]);
               });
             },
           )
