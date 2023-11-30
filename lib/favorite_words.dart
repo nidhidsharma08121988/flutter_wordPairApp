@@ -11,12 +11,12 @@ class FavoriteWords extends StatefulWidget {
 class FavoriteWordsState extends State<FavoriteWords> {
   @override
   Widget build(BuildContext context) {
-    final Iterable<ListTile> tiles = widget.favorites.map((tile) {
+    Iterable<ListTile> tiles = widget.favorites.map((tile) {
       return ListTile(
         title: Text(tile),
       );
     });
-    final List<Widget> dividedTiles =
+    List<Widget> dividedTiles =
         ListTile.divideTiles(tiles: tiles, context: context).toList();
     return Scaffold(
         appBar: AppBar(title: const Text('Saved favorites')),
