@@ -5,10 +5,10 @@ class Body extends StatefulWidget {
   Set<String> favorites;
   Body({super.key, this.wordList = const [], this.favorites = const {}});
   @override
-  _BodyState createState() => _BodyState();
+  BodyState createState() => BodyState();
 }
 
-class _BodyState extends State<Body> {
+class BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     bool isFavoriteWord(String word) {

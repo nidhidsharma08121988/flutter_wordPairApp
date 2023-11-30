@@ -5,10 +5,10 @@ class FavoriteWords extends StatefulWidget {
   const FavoriteWords({super.key, this.favorites = const {}});
 
   @override
-  _FavoriteWordsState createState() => _FavoriteWordsState();
+  FavoriteWordsState createState() => FavoriteWordsState();
 }
 
-class _FavoriteWordsState extends State<FavoriteWords> {
+class FavoriteWordsState extends State<FavoriteWords> {
   @override
   Widget build(BuildContext context) {
     final Iterable<ListTile> tiles = widget.favorites.map((tile) {

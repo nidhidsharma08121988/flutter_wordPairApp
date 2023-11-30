@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:wordpair_generator/app_body.dart';
+import 'package:wordpair_generator/favorite_words.dart';
 
 class Home extends StatefulWidget {
   const Home({
     super.key,
   });
   @override
-  _HomeState createState() => _HomeState();
+  HomeState createState() => HomeState();
 }
 
-class _HomeState extends State<Home> {
+class HomeState extends State<Home> {
   List<String> randomWordsList = [
     'color',
     'food',
@@ -50,7 +51,18 @@ class _HomeState extends State<Home> {
                 centerTitle: true,
                 title: const Text('Random Words Generator'),
                 actions: <Widget>[
-                  IconButton(onPressed: () {}, icon: const Icon(Icons.list))
+                  IconButton(
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (BuildContext context) {
+                          return Builder(
+                            builder: (BuildContext context) {
+                              return FavoriteWords(favorites: favorites);
+                            },
+                          );
+                        }));
+                      },
+                      icon: const Icon(Icons.list))
                 ]),
             body: Body(wordList: randomWordsList, favorites: favorites)));
   }
